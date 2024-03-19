@@ -10,7 +10,7 @@ _start:
     push  'O'
     mov   ecx, esp    ; esp now points to your char
     mov   edx, 1      ; edx should contain how many characters to print
-    int   80h         ; sys_write(1, "E", 1)
+    int   80h         ; sys_write(1, "O", 1)
 
     mov eax, 4
     mov ebx, 1
@@ -26,7 +26,7 @@ _start:
     push  'R'
     mov   ecx, esp    ; esp now points to your char
     mov   edx, 1      ; edx should contain how many characters to print
-    int   80h         ; sys_write(1, "S", 1)
+    int   80h         ; sys_write(1, "R", 1)
 
     mov eax, 4
     mov ebx, 1
@@ -42,7 +42,7 @@ _start:
     push  'I'
     mov   ecx, esp    ; esp now points to your char
     mov   edx, 1      ; edx should contain how many characters to print
-    int   80h         ; sys_write(1, "P", 1)
+    int   80h         ; sys_write(1, "I", 1)
 
     mov eax, 4
     mov ebx, 1
@@ -58,7 +58,7 @@ _start:
     push  'G'
     mov   ecx, esp    ; esp now points to your char
     mov   edx, 1      ; edx should contain how many characters to print
-    int   80h         ; sys_write(1, "I", 1)
+    int   80h         ; sys_write(1, "G", 1)
 
     mov eax, 4
     mov ebx, 1
