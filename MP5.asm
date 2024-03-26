@@ -5,17 +5,17 @@ section .text
     global _start
 
 _start:
-    mov eax, 4       ; System call for 'write'
-    mov ebx, 1       ; File descriptor (stdout)
+    mov eax, 4       ; syscall for write
+    mov ebx, 1       ; output
 
     get_char:
-        mov eax, 3       ; System call for 'read'
-        mov ebx, 0       ; File descriptor (stdin)
-        mov ecx, char_in ; Address to store character 
-        mov edx, 1       ; Read 1 byte  
+        mov eax, 3       ; syscall for read
+        mov ebx, 0       ; input
+        mov ecx, char_in ; store input in char_in 
+        mov edx, 1       ; read 1 byte  
         int 0x80
 
-        ; Check if character is within 'a' to 'z'
+        ; Check if its within 'a' to 'z'
         cmp byte [char_in], 'a'
         jl not_lower
         cmp byte [char_in], 'z'
@@ -27,7 +27,7 @@ _start:
         jmp print_char
 
     not_lower:
-        ; Check if character is within 'A' to 'Z'
+        ; Check if its within 'A' to 'Z'
         cmp byte [char_in], 'A'
         jl print_char
         cmp byte [char_in], 'Z'
@@ -37,18 +37,18 @@ _start:
         add byte [char_in], 0x20
 
     print_char:
-        mov eax, 4       ; System call for 'write'
-        mov ebx, 1       ; File descriptor (stdout)
-        mov ecx, char_in ; Address of character to print
-        mov edx, 1       ; Print 1 byte
-        int 0x80         ; Call the kernel
+        mov eax, 4       ; syscall for write
+        mov ebx, 1       ; output
+        mov ecx, char_in ; call char_in
+        mov edx, 1       ; print 1 byte of char_in
+        int 0x80         ; call the kernel
 
-        jmp get_char     ; Get the next character 
+        jmp get_char     ; back to get_char 
 
-    ; Exit cleanly
-    mov eax, 1       ; System call for 'exit' 
-    mov ebx, 0       ; Exit code (0 = success)
+    ; exit program
+    mov eax, 1       
+    mov ebx, 0        
     int 0x80         
 
 section .bss
-    char_in resb 1   ; Reserve 1 byte for input character
+    char_in resb 1   
