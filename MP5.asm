@@ -56,5 +56,5 @@ section .bss
 
 ; nasm-commands
 ; sudo apt-get install nasm
-; nasm -f elf MP5.asm
-; ld -m elf_i386 MP5.o -o MP5
+; nasm -f elf orig.asm
+; ld -m elf_i386 orig.o -o orig
