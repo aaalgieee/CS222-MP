@@ -21,7 +21,7 @@ _start:
         cmp byte [char_in], 'z'
         jg not_lower
 
-        ; Convert to uppercase  
+        ; convert to uppercase  
         sub byte [char_in], 0x20  
 
         jmp print_char
@@ -33,7 +33,7 @@ _start:
         cmp byte [char_in], 'Z'
         jg print_char
 
-        ; Convert to lowercase 
+        ; convert to lowercase 
         add byte [char_in], 0x20
 
     print_char:
