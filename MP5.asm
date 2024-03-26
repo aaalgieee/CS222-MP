@@ -52,3 +52,9 @@ _start:
 
 section .bss
     char_in resb 1   
+
+
+; nasm-commands
+; sudo apt-get install nasm
+; nasm -f elf MP5.asm
+; ld -m elf_i386 MP5.o -o MP5
